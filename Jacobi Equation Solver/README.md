@@ -18,7 +18,11 @@ The 2D space of interest is first discretized via a uniform grid in which $$\Del
 in millimeters—between grid points along the two Cartesian dimensions. If $$\Delta$$ is sufficiently
 small, we can approximate the second-order derivatives in the euqation shown above using the Taylor series as 
 
+<img src="Screenshot 2024-04-21 183222.jpg" width="400" height="150" />
 
+Substituting the above equations into the first equation we obtain 
+
+<img src="Screenshot 2024-04-21 163108.jpg" width="250" height="150" />
 
 
 
