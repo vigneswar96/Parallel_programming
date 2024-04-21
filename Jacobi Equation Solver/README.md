@@ -3,8 +3,9 @@ The Jacobi method, named after Carl Gustav Jacob Jacobi, is an iterative algorit
 system of linear equations. This technique has many applications in numerical computing. For
 example, it can be used to solve the following differential equation in two variables x and y:
 
-$$ \frac{\partial^2 f}{\partial x^2} +  \frac{\partial^2 f}{\partial y^2} = 0 $$     
-&rarr;
+$$ \frac{\partial^2 f}{\partial x^2} +  \frac{\partial^2 f}{\partial y^2} = 0 $$
+
+
 The above equation solves for the steady-state value of a function f(x, y) defined over a physical
 two-dimensional (2D) space where f is a given physical quantity.
 In this assignment, f represents
@@ -15,13 +16,10 @@ steady-state temperature distribution inside the plate? \
 
 The 2D space of interest is first discretized via a uniform grid in which $$\Delta$$ is the spacing—for example,
 in millimeters—between grid points along the two Cartesian dimensions. If $$\Delta$$ is sufficiently
-small, we can approximate the second-order derivatives in (1) using the Taylor series as 
+small, we can approximate the second-order derivatives in the euqation shown above using the Taylor series as 
 
-$$ \frac{\partial^2 f}{\partial x^2}
-, and  (2)
 
-∂2f
-∂y2 =
-f(x, y + ) − 2f(x, y) + f(x, y − )
-2
-.
+
+
+
+
