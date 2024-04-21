@@ -4,6 +4,7 @@ system of linear equations. This technique has many applications in numerical co
 example, it can be used to solve the following differential equation in two variables x and y:
 
 $$ \frac{\partial^2 f}{\partial x^2} +  \frac{\partial^2 f}{\partial y^2} = 0 $$     
+&rarr;
 The above equation solves for the steady-state value of a function f(x, y) defined over a physical
 two-dimensional (2D) space where f is a given physical quantity.
 In this assignment, f represents
