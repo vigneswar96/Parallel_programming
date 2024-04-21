@@ -1,1 +1,86 @@
 
+# SAXPY Loop Implementation
+
+This repository contains the implementation of the SAXPY (Scalar-Alpha-X-Plus-Y) loop using both a single-threaded reference solution and two multi-threaded solutions using pthreads.
+
+## Compilation
+
+To compile the code, use the following command:
+
+```bash
+gcc -o saxpy saxpy.c -O3 -Wall -std=c99 -lpthread -lm
+
+the compilation command, which compiles the code with optimization, warning flags, and the use of the C99 standard.
+
+This defines the _REENTRANT macro to ensure that the library functions are multi-thread (MT) safe.
+
+The code declares the function prototypes for the reference solution (compute_gold), two versions of the pthread-based solutions (compute_using_pthreads_v1 and compute_using_pthreads_v2), and a helper function (check_results) to verify the correctness of the results.
+
+This defines two custom structures, thread_chunking_data_input and thread_striding_data_input, to store the input data for the pthread-based solutions.
+
+### How to Run this code ? 
+
+There are two command-line arguments: the number of elements in the input vectors and the number of threads to use.
+
+To run the code, execute the following command in the terminal:
+
+./saxpy <num-elements> <num-threads>
+
+Replace <num-elements> with the number of elements in the input vectors and <num-threads> with the number of threads to use.
+
+The program will output the execution times for the reference solution and the two pthread-based solutions, as well as the results of the correctness checks.
+
+### Contribution
+If you would like to contribute to this project, feel free to fork the repository, make your changes, and submit a pull request.
+
+### How it works?
+
+It generates the input vectors x, y1, y2, and y3, filled with random numbers between -0.5 and 0.5.
+
+It calls the reference solution (compute_gold) and measures the execution time.
+
+It calls the two pthread-based solutions (compute_using_pthreads_v1 and compute_using_pthreads_v2) and measures their execution times.
+
+It checks the correctness of the results from the pthread-based solutions by comparing them to the reference solution.
+
+Finally, it frees the dynamically allocated memory.
+
+### What comput_gold does?
+
+This function implements the SAXPY loop using a single thread. It iterates over the input vectors and computes the SAXPY operation for each element.
+
+### Pthread-based Solution, Version 1 (compute_using_pthreads_v1): This function creates num_threads pthreads, each of which executes the compute_gold_using_chunking_method function.
+
+a) The compute_gold_using_chunking_method function takes the input data (the thread_chunking_data_input structure) and computes the SAXPY operation on a chunk of the input vectors.
+
+b) The chunk size is determined by dividing the total number of elements by the number of threads, with the last thread handling any remaining elements.
+
+c) The threads are created using pthread_create, and they are joined using pthread_join.
+
+### Pthread-based Solution, Version 2 (compute_using_pthreads_v2): This function also creates num_threads pthreads, each of which executes the compute_gold_using_striding_method function.
+
+a) The compute_gold_using_striding_method function takes the input data (the thread_striding_data_input structure) and computes the SAXPY operation on the input vectors using a striding approach.
+
+b) Each thread processes every num_threads-th element, ensuring that the workload is evenly distributed across the threads.
+
+c) The threads are created using pthread_create, and they are joined using pthread_join.
+
+### Check Results Function (check_results): This function compares the results of the pthread-based solutions with the reference solution. 
+It checks the relative error between the corresponding elements and returns 0 if all elements are within the specified threshold, or -1 if any element exceeds the threshold.
+
+The pthread library is used to create and manage multiple threads for the parallel computation of the SAXPY loop.
+
+Chunking method: In the first pthread-based solution, the input vectors are divided into chunks, and each thread processes a specific chunk of the data.
+
+Striding method: In the second pthread-based solution, the workload is distributed across the threads using a striding approach, where each thread processes every num_threads-th element.
+
+Dynamic Memory Allocation: Dynamically allocates memory for the input vectors and the thread-specific data structures using malloc.
+
+Timing Measurements: The execution time of the reference solution and the two pthread-based solutions using the gettimeofday function.
+
+Error Checking: There is a function (check_results) to verify the correctness of the results from the pthread-based solutions by comparing them to the reference solution.
+
+# License
+This project is licensed under the MIT License.
+
+'''This README.md file should provide a clear and concise overview of the project, including the compilation instructions, code structure, key techniques employed, and how to run the code. The formatting using Markdown syntax should make the content visually appealing and easy to read on GitHub pages.'''
