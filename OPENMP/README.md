@@ -33,6 +33,9 @@ void gauss_eliminate_using_omp(Matrix U)
 
 The performance outcome is as follows: 
 
-![Sample Image](Screenshot 2024-04-23 184048.jpg) 
+
+![Performance outcome](Screenshot 2024-04-23 184048.jpg) 
+
+
 
 In Summary Only larger matrices show performance gains from parallel implementation. The overhead associated with thread creation causes the speed advantages to revert after a certain number of threads.
