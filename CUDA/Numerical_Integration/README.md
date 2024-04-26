@@ -23,6 +23,10 @@ The project consists of a serial CPU implementation (trap_gold.cpp) and a parall
 
 The GPU implementation achieves significant speedup over the serial CPU version. The speedup is reported for different numbers of trapezoids (10<sup>4</sup>, 10<sup>6</sup>, and 10<sup>8</sup>) used to estimate the integral of the function f(x) = (√(1 + x<sup>2</sup>)) / (1 + x<sup>4</sup>) over the interval [5, 100]. 
 
+<p align="center">
+  <img src="Untitled.png" width="350" title="Results">
+</p>
+
 ***Usage***
 
 To build and run the project, follow these steps:
